@@ -1,9 +1,27 @@
     <div class="col-sm-12 panel-group">
         {{#each article}}
 
-        <!-- title and summary grabbed from html-routes -->
-
-            {{this.title}}
-            <br>
+                <div class="panel panel-primary text-center"><h2><strong>{{this.title}} </strong></h2>
+                <a href="http://www.theonion.com{{this.link}}"><h4><strong>Read More Here!</strong></h4></a>
+            </div>
+        <br>
             {{/each}}
+
+
+<div class="bottomDiv text-center col-md-12">
+<h2>Add a Comment</h2>
+<form class="create-update-form" action="/article/{{this._id}}" method="POST">
+
+  <div class="form-group">
+    <label for="name">Title:</label>
+    <input type="text" id="ca" name="Title">
+  </div>
+
+    <div class="form-group">
+    <label for="ca">Comment Body:</label>
+    <input type="text" id="ca" name="Comment">
+  </div>
+  <button type="submit" class="add-submit">Add comment:</button>
+</form>
+</div>
     </div>
