@@ -1,9 +1,10 @@
     <div class="col-sm-12 panel-group">
         {{#each article}}
-
+    {{#if this.title}}
                 <div class="panel panel-primary text-center"><h2><strong>{{this.title}} </strong></h2>
                 <a href="http://www.theonion.com{{this.link}}"><h4><strong>Read More Here!</strong></h4></a>
             </div>
+    {{/if}}
         <br>
             {{/each}}
 
