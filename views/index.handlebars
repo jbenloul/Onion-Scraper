@@ -1,0 +1,31 @@
+<div class="jumbotron text-center" id="background">
+  <h1>In the News</h1> 
+</div>
+    <br>
+    <div class="container-fluid bg-grey">
+        <span class="row text-center">
+            <!-- every time we add a new post, we need to make jquery post the following below -->
+            <!-- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
+            {{#each article}}
+            <!-- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
+                <div class="col-sm-3" style="height: 550px">
+                    <!-- title and summary grabbed from html-routes -->
+                    <!-- <a href="/comment"> -->
+                    <div class="panel panel-primary">
+                        <a href="/article/{{this._id}}">
+                            <div class="thumbnail"><img src="{{this.image}}"></div>
+                            <h2><strong>{{this.title}} </strong></h2>
+                        </a>
+
+                        <hr>
+                        <!--  </a> -->
+                        <div class="panel-body">
+                            <a href="http://www.theonion.com{{this.link}}"><h4><strong>Read More Here!</strong></h4></a>
+                        </div>
+                        <!-- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
+                     </div>
+                </div>
+        {{/each}}
+    <br> 
+        </span>
+    </div>

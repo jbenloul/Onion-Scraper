@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>project two</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+    <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+    <!-- google fonts "Montserrat" and "Lato" -->
+    <link rel="stylesheet" type="text/css" href="/css/styleCategory.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/main.js"></script>
+</head>
+<!-- will not be using these html files -->
+<!-- {{{body}}}
+ -->
+<!-- Add scrollspy to <body> to automatically update navbar links when scrolling -->
+
+<body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container col-md-12 col-sm-12 col-xs-12">
+            <span class="collapse navbar-collapse" id="myNavbar">
+                <ul class="col-md-2 col-sm-3 col-xs-3 nav navbar-nav text-center">
+                <!-- homepage button -->
+                    <span class="form-control">
+                        <a href="/home">
+                        <p><strong>Homepage</strong></p></a>
+                     </span>
+            </ul>
+            <!-- displayed name -->
+            <span class="col-md-3 col-sm-1 col-xs-1"></span>
+            <span class="col-md-3 col-sm-3 col-xs-3">
+                        <h1>In The News</h1>
+            </span>
+            <!-- search bar NEEDS MORE WORK -->
+            <form class="create-update-form form-group" action="/search" method="POST">
+                <span class="col-md-2 col-sm-2 col-xs-2 nav navbar-nav text-center">
+                <input type="text" class="form-control" id="searchInput" name="searchValue" placeholder="Search">
+            </span>
+                <span class="col-md-2 col-sm-2 col-xs-2 nav navbar-nav">
+                <!-- <a href="/search">  -->
+                    <button type="submit" id= "searchInputButton" class="btn btn-default">Submit</button> 
+               <!--  </a> -->
+            </span>
+            </form>
+            </span>
+            </form>
+            <!--Need to figure the search bar Up til here  -->
+        </div>
+    </nav>
+    <div class="jumbotron text-center" id="background">
+        <ul class="category-name-container"></ul>
+    </div>
+    <br>
+    <div class="row text-center">
+        <div class="col-sm-3">
+        </div>
+    </div>
+    <div class="container-fluid bg-grey">
+        <div class="row text-center">
+            <!-- every time we add a new post, we need to make jquery post the following below -->
+            <!-- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
+            <!-- {{#each newsItem}} -->
+            <!-- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
+            <a href="/comment/{{this.newsID}}">
+                <div class="col-sm-3 panel-group">
+                    <!-- title and summary grabbed from html-routes -->
+                    <!-- <a href="/comment"> -->
+                    <div class="panel panel-primary">
+                        <!-- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
+                        <div class="thumbnail"><img src="{{this.imageSource}}"></div>
+                        <h2><strong>{{this.title}} </strong></h2>
+                        <hr>
+                        <!--  </a> -->
+                        <div class="panel-body">
+                            <h4><strong>{{this.summary}}</strong></h4></div>
+                        <!-- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
+                    </div>
+                </div>
+            </a>
+            <!-- <br> {{/each}} -->
+            <div class="col-sm-2"></div>
+        </div>
+    </div>
+    <br>
+    <footer class="footer text-center">
+    </footer>
+    <script>
+    // change background image according to the category
+    $('#background').css('background-image', 'url("/css/{{catName}}.jpg")');
+    $('#authId').val(localStorage.authorId);
+
+    //if title empty, alert pops up 
+    $('#submitTitleSummary').click(function() {
+        if ($.trim($('#userImputTitle').val()) == '') {
+            alert('input a title');
+        }
+    });
+    //if summary empty, alert pops up 
+    $('#submitTitleSummary').click(function() {
+        if ($.trim($('#userImputSummary').val()) == '') {
+            alert('input a summary');
+        }
+    });
+    </script>
+</body>
+<!--  
+     <div class="col-sm-12 panel-group">
+
+        {{#each data}}
+
+                <div class="thumbnail"><img src="{{this.imageSource}}">
+                    <h2><strong>{{this.title}} </strong></h2><hr>
+                   
+                    <div class="panel-body">
+                        <h4><strong>{{this.summary}}</strong></h4></div>
+                </div>
+        <br>
+            {{/each}}
+    </div>
+
+
+        {{#each comment}}
+
+                <div class="panel panel-primary text-center" value=""><h2><strong>{{this.title}} </strong></h2>
+                <div class="panel-body text-center"><h4><strong>{{this.summary}}</strong></h4></div>
+                <div class="panel-body text-center"><h5>Comment made by: {{this.author}}</h4></div                
+
+            </div>
+        <br>
+            {{/each}}
+ 
+  -->
+
+</html>
